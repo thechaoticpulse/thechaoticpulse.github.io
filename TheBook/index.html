@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Book</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+  <!-- stats.js lib --> 
+   <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+</head>
+
+<body>
+  <div id="particles-js"></div> 
+  <!-- stats - count particles --> 
+   <div class="count-particles"></div>
+
+  <div class="book">
+    <div class="page cover-front" onclick="movePage(this, 1)">
+      <!-- <h1>The Book</h1> -->
+      <div class="hat"><i class="fab fa-pied-piper-hat"></i></div>
+      <!-- <h2>Yours truely</h2> -->
+    </div>
+    <div class="page cover-front" onclick="movePage(this, 2)"></div>
+    <div class="page text-page" onclick="movePage(this, 3)">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p>Please be patient with me.</p>
+      <span>- Red, White and Royal Blue</span>
+    </div>
+    <div class="page text-page" onclick="movePage(this, 4)">
+      <img src="Images/image 1.jpg" alt="Description of the image" width="300" height="500">
+      <p>I'd rather die tomorrow than live a hundred years without knowing you.</p>
+
+      <span>- Pocahontas</span>
+    </div>
+    <div class="page text-page" onclick="movePage(this, 5)">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <img src="Images/notting hill.jpg" alt="Description of the image" width="300" height="200">
+      <p>I'm also just a girl, standing in front of a boy, asking him to love her.</p>
+      <br>
+      <br>
+      <span>- Notting Hill</span>
+    </div>
+    <div class="page text-page" onclick="movePage(this, 6)">
+      <img src="Images/Marriage.jpg" alt="Description of the image" width="300" height="500">
+      <p>You don't marry someone you can live with, you marry the person you cannot live without.</p>
+      <p>.</p>
+      <p>.</p>
+      <span>- P.S. I Love You</span>
+    </div>
+    <div class="page text-page" onclick="movePage(this, 7)">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p>I came here tonight because when you realize you want to spend the rest of your life with somebody, you want the rest of your life to start as soon as possible.</p>
+      <span>- When Harry Met Sally</span>
+    </div>
+    <div class="page text-page" onclick="movePage(this, 8)">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p>Always.</p>
+      <span>Severus Snape :: 
+        Harry Potter and the Deathly Hallows: Part Two
+      </span>
+    </div>
+    <div class="page text-page" onclick="movePage(this, 9)">
+      <img src="Images/Rose.jpg" alt="Description of the image" width="300" height="400">
+      <p>I promise I'll come back for you.</p>
+      <p> I promise I'll never leave you. </p>
+      <span>- The English Patient</span>
+    </div>
+    <div class="page text-page" onclick="movePage(this, 10)">
+      <br>
+      <br>
+      <br>
+      <br>
+      <img src="Images/gossip girl.jpg" alt="Description of the image" width="270" height="250">
+      <br>
+      <br>
+
+      <p>3 words, 8 letters. Say it and I'm yours.</p>
+      <span>- Gossip Girl</span>
+    </div>
+    <div class="page text-page" onclick="movePage(this, 11)">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p>
+        History, Huh? Bet We Could Make Some.
+      </p>
+      <span>- Red, White and Royal Blue</span>
+    </div>
+    <div class="page text-page" onclick="movePage(this, 12)">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h4>I was running away....</h4>
+      <br>
+      <br>
+      <br>
+      <h5>and you felt like "Home".</h5>
+    </div>
+    <div class="page text-page" onclick="movePage(this, 13)"></div>
+    <div class="page text-page" onclick="movePage(this, 14)"></div>
+    <div class="page text-page" onclick="movePage(this, 15)"></div>
+    <div class="page text-page" onclick="movePage(this, 16)"></div>
+    <div class="page text-page" onclick="movePage(this, 17)"></div>
+    <div class="page text-page" onclick="movePage(this, 18)"></div>
+    <div class="page text-page" onclick="movePage(this, 19)"></div>
+    <div class="page text-page" onclick="movePage(this, 20)"></div>
+    <div class="page text-page" onclick="movePage(this, 21)"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+    <div class="page"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himadri Nayak</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        body.light {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        body.dark {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #0078d4;
+            color: white;
+            position: relative;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2) translateY(-5px); /* Bounce effect */
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "🌞";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            content: "🌙";
+            transform: translateX(26px);
+        }
+
+        .intro {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #0078d4;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 30px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            animation: slideIn 0.8s ease forwards;
+        }
+
+        .left {
+            left: 0;
+            animation-name: slideInLeft;
+        }
+
+        .right {
+            left: 50%;
+            animation-name: slideInRight;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #0078d4;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover::after {
+            transform: scale(1.3);
+        }
+
+        .left::after {
+            right: -6px;
+        }
+
+        .right::after {
+            left: -6px;
+        }
+
+        .content {
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .content h2 {
+            font-size: 18px;
+            margin: 0 0 5px 0;
+        }
+
+        .content p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        body.light .content {
+            background: white;
+        }
+
+        body.dark .content {
+            background: #2d2d2d;
+        }
+
+        .projects {
+            margin: 50px 0;
+        }
+
+        .projects h2 {
+            text-align: center;
+            color: #0078d4;
+            margin-bottom: 40px;
+        }
+
+        .project-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .project-item:nth-child(1) { animation-delay: 0.2s; }
+        .project-item:nth-child(2) { animation-delay: 0.4s; }
+        .project-item:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        body.light .project-item {
+            background: white;
+        }
+
+        body.dark .project-item {
+            background: #2d2d2d;
+        }
+
+        .project-item.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .project-image {
+            flex: 0 0 40%;
+            padding: 10px;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .project-content h3 {
+            margin: 0 0 10px 0;
+            color: #0078d4;
+        }
+
+        .project-content p {
+            margin: 0;
+        }
+
+        .project-content a {
+            color: #0078d4;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-content a:hover {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="light">
+    <div class="header">
+        <h1>Himadri Nayak</h1>
+        <div class="social-links">
+            <a href="https://instagram.com/thechaoticpulse" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com/in/sleepingpanda" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/thechaoticpulse" target="_blank"><i class="fab fa-github"></i></a>
+            <!-- <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a> -->
+        </div>
+        <div class="theme-toggle">
+            <label class="switch">
+                <input type="checkbox" id="themeSwitch">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="intro">
+            <p>Hello! I'm Himadri Nayak, a passionate individual who loves creating and innovating. 
+            Here's a bit about my journey and some projects I've worked on.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="content">
+                    <h2>Software Engineer at Microsoft</h2>
+                    <p>July 2020 - Present</p>
+                    <p>Working on cutting-edge technology solutions and contributing to innovative software products.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects">
+            <h2>My Projects</h2>
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="TheBook/Images/TheBookPicture.png" alt="Project 1">
+                </div>
+                <div class="project-content">
+                    <h3>The Book</h3>
+                    <p>This project, "The Book," is a live, interactive book featuring templates and iconic moments inspired by famous movies.</p>
+                    <a href="TheBook/index.html" target="_blank">View Project</a>
+                </div>                
+            </div>
+
+            <!-- <div class="project-item reverse">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 2">
+                </div>
+                <div class="project-content">
+                    <h3>Project 2</h3>
+                    <p>This is a description of Project 2. It demonstrates my ability to work with complex systems.</p>
+                    <a href="https://github.com/yourusername/project2" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/300x200" alt="Project 3">
+                </div>
+                <div class="project-content">
+                    <h3>Project 3</h3>
+                    <p>This is a description of Project 3. It highlights my creative approach to coding.</p>
+                    <a href="https://github.com/yourusername/project3" target="_blank">View Project</a>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        const toggleSwitch = document.getElementById('themeSwitch');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.remove('light');
+            body.classList.add('dark');
+            toggleSwitch.checked = true;
+        }
+
+        toggleSwitch.addEventListener('change', () => {
+            if (toggleSwitch.checked) {
+                body.classList.remove('light');
+                body.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark');
+                body.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
